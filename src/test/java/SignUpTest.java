@@ -23,7 +23,7 @@ public class SignUpTest {
          driver = new ChromeDriver(options);
         driver.get("https://automationexercise.com/");
 
-
+        /*****************************/
         /****/
      }
     @Test
