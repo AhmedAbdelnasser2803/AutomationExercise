@@ -22,6 +22,9 @@ public class SignUpTest {
         options.addArguments("--incognito");
          driver = new ChromeDriver(options);
         driver.get("https://automationexercise.com/");
+
+
+        /****/
      }
     @Test
     public void test() throws InterruptedException {
