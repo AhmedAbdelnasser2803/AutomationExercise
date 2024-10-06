@@ -75,15 +75,16 @@ public class SignUpTest {
         Select selectY = new Select(yearsDropDownList);
         selectY.selectByValue("1900");
 
+        WebElement checkbox = driver.findElement(By.name("newsletter"));
+        checkbox.click();
         Thread.sleep(1000);
     }
     @AfterTest
     public void finish ()
     {
-        /*****/
+
         driver.quit();
         System.out.println("finish task");
-        /*test ahmed abdelnasser*/
     }
 
 }
