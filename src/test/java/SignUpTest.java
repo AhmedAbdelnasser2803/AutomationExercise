@@ -74,10 +74,12 @@ public class SignUpTest {
         /*year*/
         Select selectY = new Select(yearsDropDownList);
         selectY.selectByValue("1900");
-
-        WebElement checkbox = driver.findElement(By.name("newsletter"));
-        checkbox.click();
-        System.out.println("ahmed abdelnasser");
+        /* Select checkbox 'Sign up for our newsletter!'*/
+        WebElement checkboxNewsletter = driver.findElement(By.name("newsletter"));
+        checkboxNewsletter.click();
+        /*Select checkbox 'Receive special offers from our partners!'*/
+        WebElement checkboxReceiveSpecial = driver.findElement(By.name("optin"));
+        checkboxReceiveSpecial.click();
         Thread.sleep(1000);
     }
     @AfterTest
