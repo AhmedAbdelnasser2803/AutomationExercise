@@ -29,7 +29,7 @@ public class SignUpTest {
     @Test
     public void test() throws InterruptedException {
         /*declare mail as var to change in one var*/
-        String mail = "jibox11202@sigmazon.com";
+        String mail = "ridevo5913@scarden.com";
         /*alocate the login button using css selector */
         loginSignUpPage =  driver.findElement(By.cssSelector("a[href='/login']"));
         loginSignUpPage.click(); // action to click to the button
@@ -77,6 +77,7 @@ public class SignUpTest {
 
         WebElement checkbox = driver.findElement(By.name("newsletter"));
         checkbox.click();
+        System.out.println("ahmed abdelnasser");
         Thread.sleep(1000);
     }
     @AfterTest
