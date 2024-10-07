@@ -22,9 +22,6 @@ public class SignUpTest {
         options.addArguments("--incognito");
          driver = new ChromeDriver(options);
         driver.get("https://automationexercise.com/");
-
-
-        /****/
      }
     @Test
     public void test() throws InterruptedException {
@@ -64,6 +61,9 @@ public class SignUpTest {
         WebElement daysDropDownList=driver.findElement(By.cssSelector("[data-qa='days']"));
         WebElement monthDropDownList=driver.findElement(By.cssSelector("[data-qa='months']"));
         WebElement yearsDropDownList=driver.findElement(By.cssSelector("[data-qa='years']"));
+        /*setPassword*/
+        WebElement passwordField = driver.findElement(By.cssSelector("[data-qa='password']"));
+        passwordField.sendKeys("123456");
         /*select the date of birth to login*/
         /*day*/
         Select selectD = new Select(daysDropDownList);
@@ -80,13 +80,50 @@ public class SignUpTest {
         /*Select checkbox 'Receive special offers from our partners!'*/
         WebElement checkboxReceiveSpecial = driver.findElement(By.name("optin"));
         checkboxReceiveSpecial.click();
-        Thread.sleep(1000);
+        /*Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number*/
+        /*firstName*/
+        WebElement Firstname = driver.findElement(By.cssSelector("[data-qa='first_name']"));
+        Firstname.sendKeys("ahmed");
+        /*lastname*/
+        WebElement Lastname = driver.findElement(By.cssSelector("[data-qa='last_name']"));
+        Lastname.sendKeys("abdelnasser");
+        /*company*/
+        WebElement company = driver.findElement(By.cssSelector("[data-qa='company']"));
+        company.sendKeys("NTG");
+        /*address*/
+        WebElement address = driver.findElement(By.cssSelector("[data-qa='address']"));
+        address.sendKeys("portsaid");
+        /*address2*/
+        WebElement address2 = driver.findElement(By.cssSelector("[data-qa='address2']"));
+        address.sendKeys("Giza");
+        /*country     drop down list*/
+        WebElement countryDropDownList = driver.findElement(By.cssSelector("[data-qa='country']"));
+        Select selectCountry = new Select(countryDropDownList);
+        selectCountry.selectByValue("United States");
+        /*State*/
+        WebElement stateField = driver.findElement(By.cssSelector("[data-qa='state']"));
+        stateField.sendKeys("single");
+        /*City*/
+        WebElement cityField = driver.findElement(By.cssSelector("[data-qa='city']"));
+        cityField.sendKeys("posrtsaid");
+        /*Zipcode*/
+        WebElement zipcode = driver.findElement(By.cssSelector("[data-qa='zipcode']"));
+        zipcode.sendKeys("123456");
+        /*MobileNumber*/
+        WebElement mobileNumber = driver.findElement(By.cssSelector("[data-qa='mobile_number']"));
+        mobileNumber.sendKeys("01025475087");
+        /*Click 'Create Account button'*/
+        WebElement createAccountBtn = driver.findElement(By.cssSelector("[data-qa='create-account']"));
+        createAccountBtn.click();
+
+
+        Thread.sleep(5000);
     }
     @AfterTest
     public void finish ()
     {
 
-        driver.quit();
+        //driver.quit();
         System.out.println("finish task");
     }
 
