@@ -9,6 +9,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+//-------- change the email when i run the first test case
 public class SignUpTest {
     private static WebDriver driver ;
     /*define alocator*/
@@ -20,13 +21,14 @@ public class SignUpTest {
     public void openChrome() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-         driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize(); // maximize the screen
         driver.get("https://automationexercise.com/");
      }
     @Test
-    public void test() throws InterruptedException {
+    public void signUp() throws InterruptedException {
         /*declare mail as var to change in one var*/
-        String mail = "ridevo5913@scarden.com";
+        String email = "toucan5698@mailnuo.com";
         /*alocate the login button using css selector */
         loginSignUpPage =  driver.findElement(By.cssSelector("a[href='/login']"));
         loginSignUpPage.click(); // action to click to the button
@@ -42,7 +44,7 @@ public class SignUpTest {
         signUpButton = driver.findElement(By.cssSelector("[data-qa='signup-button']"));
         /*set data in email and name field*/
         nameTxt.sendKeys("ahmed");
-        emailAddressTxt.sendKeys(mail);
+        emailAddressTxt.sendKeys(email);
         signUpButton.click();
         /*verfiy the page of signup data*/
         String expectedTitleSignUp = "Automation Exercise - Signup";
@@ -115,15 +117,14 @@ public class SignUpTest {
         /*Click 'Create Account button'*/
         WebElement createAccountBtn = driver.findElement(By.cssSelector("[data-qa='create-account']"));
         createAccountBtn.click();
-
-
         Thread.sleep(5000);
     }
+
     @AfterTest
     public void finish ()
     {
 
-        //driver.quit();
+        driver.quit();
         System.out.println("finish task");
     }
 
